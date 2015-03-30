@@ -3,7 +3,6 @@ package blog;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +21,8 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.*;
 
 public class BlogGUI extends PlainDocument implements DocumentListener, ActionListener{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private JFrame mainFrame;
 	private JLabel inputCharLabel;
