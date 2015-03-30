@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -29,7 +30,7 @@ public class BlogGUI{
 		
 		mainFrame = new JFrame("Your Name");
 		mainFrame.setSize(width, height);
-		mainFrame.setLayout(new BorderLayout());
+		mainFrame.setLayout(new GridLayout(0, 1));
 		mainFrame.setLocationByPlatform(true);
 		
 		Container contentPane;
@@ -38,13 +39,26 @@ public class BlogGUI{
 		JPanel top = new JPanel();
 		top.setLayout(new BorderLayout());
 		inputCharLabel = new JLabel("You can still input ??? Characters");
-		top.add("North", inputCharLabel);
+		top.add(inputCharLabel, BorderLayout.NORTH);
 		postTextArea = new JTextArea();
-		postTextArea.setRows(15);
-		top.add("South", postTextArea);
-		contentPane.add("North", top);
+		top.add(postTextArea, BorderLayout.CENTER);
 		
-		//mainFrame.pack();
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setLayout(new BorderLayout());
+		refresh = new JButton("refresh");
+		refresh.setPreferredSize(new Dimension(width/2, 30));
+		buttonPanel.add(refresh, BorderLayout.WEST);
+		post = new JButton("post");
+		post.setPreferredSize(new Dimension(width/2, 30));
+		buttonPanel.add(post, BorderLayout.CENTER);
+		top.add(buttonPanel, BorderLayout.SOUTH);
+		
+		contentPane.add(top);
+		
+		postContent = new JTextField();
+		
+		contentPane.add(postContent);
+		
 		mainFrame.setLocationRelativeTo(null);
 		
 		mainFrame.setVisible(true);
