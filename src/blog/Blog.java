@@ -135,12 +135,10 @@ public class Blog implements Serializable{
 			setUser(blog.getUser());
 			setPosts(blog.getPosts());
 			os.close();
+		}catch (FileNotFoundException e){
+			System.out.println("Wait! There is something wrong. I cannot find the file.");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			if (e.getClass().isInstance(new FileNotFoundException())){
-				System.out.println("Wait! There is something wrong. I cannot find the file.");
-			}
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 	
